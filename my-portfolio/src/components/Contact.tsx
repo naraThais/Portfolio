@@ -65,104 +65,76 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title">Entre em Contato</h2>
-        <p className="section-subtitle">
-          Vamos conversar sobre seu próximo projeto
-        </p>
-
         <div className="contact-content">
-          <div className="contact-info">
-            <h3>Vamos trabalhar juntos!</h3>
-            <p>
-              Estou sempre interessado em novos projetos e oportunidades. Seja
-              para discutir uma ideia, uma colaboração ou apenas para trocar uma
-              ideia sobre tecnologia, ficarei feliz em conversar!
-            </p>
-            <p>
-              Respondo a todos os emails dentro de 24 horas. Você também pode me
-              encontrar nas redes sociais abaixo.
-            </p>
-
-            <div className="social-links">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.url}
-                  className="social-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span>{link.icon}</span>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
+          <h2>Let's Work Together</h2>
+          <p>
+            Have a project in mind? I'd love to hear about it. Let's create
+            something amazing together.
+          </p>
 
           <form className="contact-form" onSubmit={handleContactSubmit}>
             <div className="form-group">
-              <label htmlFor="name">Nome *</label>
               <input
                 type="text"
-                id="name"
                 name="name"
+                placeholder="Your Name"
                 value={contactForm.name}
                 onChange={handleContactFormChange}
                 required
                 disabled={isSubmitting}
               />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email *</label>
               <input
                 type="email"
-                id="email"
                 name="email"
+                placeholder="Your Email"
                 value={contactForm.email}
                 onChange={handleContactFormChange}
                 required
                 disabled={isSubmitting}
               />
             </div>
-
-            <div className="form-group">
-              <label htmlFor="subject">Assunto</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={contactForm.subject}
-                onChange={handleContactFormChange}
-                disabled={isSubmitting}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">Mensagem *</label>
-              <textarea
-                id="message"
-                name="message"
-                value={contactForm.message}
-                onChange={handleContactFormChange}
-                required
-                rows={5}
-                disabled={isSubmitting}
-              />
-            </div>
-
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              value={contactForm.subject}
+              onChange={handleContactFormChange}
+              disabled={isSubmitting}
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={contactForm.message}
+              onChange={handleContactFormChange}
+              required
+              rows={5}
+              disabled={isSubmitting}
+            />
             <button
               type="submit"
-              className="form-submit"
+              className="btn btn-primary"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
-
             {submitStatus && (
               <div className="submit-status">{submitStatus}</div>
             )}
           </form>
+
+          <div className="social-links">
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.url}
+                className="social-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.icon}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
