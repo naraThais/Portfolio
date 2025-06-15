@@ -175,6 +175,7 @@ body {
   max-width: 800px;
   position: relative;
   z-index: 1;
+  text-align: left;
 }
 
 .hero h1 {
@@ -183,6 +184,7 @@ body {
   margin-bottom: 1.5rem;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  text-align: left;
 }
 
 .hero-subtitle {
@@ -197,15 +199,22 @@ body {
   margin-bottom: 3rem;
   opacity: 0.8;
   max-width: 600px;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  min-width: 180px;
+  flex: 1 1 180px;
+  text-align: center;
 }
 
 .btn {
@@ -227,7 +236,15 @@ body {
   background-color: white;
   color: var(--primary-color);
 }
-
+.btn-projeto {
+  background-color: white;
+  color: var(--primary-color);
+}
+.btn-projeto:hover {
+  background-color: var(--bg-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
 .btn-primary:hover {
   background-color: var(--bg-secondary);
   transform: translateY(-2px);
@@ -396,10 +413,6 @@ body {
   border-bottom: 1px solid var(--border-color);
 }
 
-.project-content {
-  padding: 1.5rem;
-}
-
 .project-title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -476,7 +489,7 @@ body {
 .contact-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+
   align-items: start;
 }
 

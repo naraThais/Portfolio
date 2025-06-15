@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 
 interface Project {
   id: number;
@@ -110,17 +110,18 @@ const Projects: React.FC = () => {
             <div key={project.id} className="project-card">
               <div className="project-image">Screenshot do Projeto</div>
               <div className="project-content">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
+                <Fragment>
+                  <h3 className="project-title">{project.title}</h3>
+                  <p className="project-description">{project.description}</p>
 
-                <div className="project-tags">
-                  {project.tags.map((tag, index) => (
-                    <span key={index} className="tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
+                  <div className="project-tags">
+                    {project.tags.map((tag, index) => (
+                      <span key={index} className="tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </Fragment>
                 <div className="project-links">
                   <a
                     href={project.liveDemo}
